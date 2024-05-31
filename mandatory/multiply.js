@@ -4,3 +4,6 @@ function multiply(...numbers) {
 test("convertToUSD function works for £32", () => {
   expect(multiply(2, 3)).toEqual(6);
 });
+test("convertToUSD function works for £32", () => {
+  expect(multiply(9, 9)).toEqual(81);
+});
