@@ -17,3 +17,8 @@ So in order for jest to find the test files, you have two options:
 }
 ]
 },
+
+############### If you want to open powerShell profile run this script:
+"
+if (!(Test-Path -Path $PROFILE)) { New-Item -Type File -Path $PROFILE -Force }
+code $PROFILE "
