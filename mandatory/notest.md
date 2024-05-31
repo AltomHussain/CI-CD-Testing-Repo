@@ -22,3 +22,19 @@ So in order for jest to find the test files, you have two options:
 "
 if (!(Test-Path -Path $PROFILE)) { New-Item -Type File -Path $PROFILE -Force }
 code $PROFILE "
+
+name: Run mandatory tests
+on: [push, pull_request]
+jobs:
+test:
+build:
+runs-on: ubuntu-latest
+steps: - uses: actions/checkout@v2 - name: Install modules
+run: npm install - name: Run mandatory tests
+run: npm test -- --selectProjects mandatory
+deploy:
+needs: test
+runs-on: ubuntu-latest
+steps: - name: Checkout code
+uses: actions/checkout@v3 - name: Deploy
+run: npm deploy

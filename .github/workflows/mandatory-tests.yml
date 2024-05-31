@@ -1,15 +1,18 @@
-name: Run mandatory tests
+name: CI/CD Pipeline
+
 on: [push, pull_request]
+
 jobs:
   test:
-  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Install modules
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Install Dependencies
         run: npm install
-      - name: Run mandatory tests
-        run: npm test -- --selectProjects mandatory
+      - name: Run tests
+        run: npm test
+
   deploy:
     needs: test
     runs-on: ubuntu-latest
