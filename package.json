@@ -1,0 +1,30 @@
+{
+  "name": "ci-cd-development",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "projects": [
+      {
+        "displayName": "mandatory",
+        "testMatch": [
+          "<rootDir>/mandatory/*.js"
+        ]
+      },
+      {
+        "displayName": "extra",
+        "testMatch": [
+          "<rootDir>/extra/*.js"
+        ]
+      }
+    ]
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "jest": "^29.7.0"
+  }
+}
