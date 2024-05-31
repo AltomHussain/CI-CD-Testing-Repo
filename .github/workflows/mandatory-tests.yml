@@ -9,3 +9,11 @@ jobs:
         run: npm install
       - name: Run mandatory tests
         run: npm test -- --selectProjects mandatory
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Deploy
+        run: npm deploy
